@@ -1,26 +1,33 @@
 import pyautogui
-from pyautogui import click, moveTo, typewrite
 from time import sleep
+
+
+def Mensagem(tipo, texto, titulo, botao):
+    if tipo == 'Alerta':
+        pyautogui.alert(text=texto, title=titulo, button=botao)
+
+
+def VerificarImagemExiste(imagem):
+    try:
+        pos = pyautogui.locateCenterOnScreen(imagem, confidence=0.9)
+        return pos
+    except Exception:
+        return None
 
 
 def Localizar_Click_Imagem(imagem, tempoPos, alterarvertical=0, alterarhorizontal=0):
     posicao = pyautogui.locateCenterOnScreen(imagem, confidence=0.9)
-    moveTo(posicao)
-
+    # logging.debug('Localizando Imagem ' + imagem +' na posicao ' + str(posicao))
+    pyautogui.moveTo(posicao)
     if alterarvertical != 0 or alterarhorizontal != 0:
-        sleep(1)
-        # print(str(posicao.x) + str(posicao.y))
         pyautogui.move(alterarhorizontal, alterarvertical)
-        # posicao = pyautogui.position()
-        # print(str(posicao.x) + str(posicao.y))
-
     sleep(0.5)
-    click()
+    pyautogui.click()
     sleep(tempoPos)
 
 
 def ClickMesmoLugar(tempoPos):
-    click()
+    pyautogui.click()
     sleep(tempoPos)
 
 
@@ -28,7 +35,7 @@ def Preencher_Texto_Localizar_Imagem(imagem, tempoPos, texto_preencher, alterarv
     Localizar_Click_Imagem(
         imagem, tempoPos, alterarvertical=alterarvertical, alterarhorizontal=alterarhorizontal)
     sleep(0.5)
-    typewrite(texto_preencher)
+    pyautogui.typewrite(texto_preencher)
 
 
 def pressionar_tecla(tecla, tempoAntes=0, tempoPos=0):
@@ -40,7 +47,7 @@ def pressionar_tecla(tecla, tempoAntes=0, tempoPos=0):
 
 
 def Preencher_Texto(texto_preencher, tempoPos):
-    typewrite(texto_preencher)
+    pyautogui.typewrite(texto_preencher)
     sleep(tempoPos)
 
 

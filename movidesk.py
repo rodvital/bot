@@ -26,40 +26,14 @@ def BotImprimirPDFTicket(lista_ticket, salvarem, velocidadepadrao):
     NaTelaLogin()
     logging.debug('Usuário Logado')
 
-    botao_localizar_titulo = 'img_movidesk/localizar_titulo.png'
     botao_opcoes = 'img_movidesk/opcoes.png'
     botao_imprimir_ticket = 'img_movidesk/imprimir_ticket.png'
     botao_imprimir = 'img_movidesk/imprimir.png'
     botao_salvar_pdf = 'img_movidesk/salvar_pdf.png'
 
-    if NumLockLigado:
-        origemNumLock = True
-        bot.pressionar_tecla('numlock', 0, muitorapido)
-        logging.debug('Num Lock Ligado, foi preciso desligar')
-    else:
-        origemNumLock = False
-        logging.debug('Num Lock Desligado')
-
-    primeiravez = True
     for ticket in lista_ticket:
-        # bot.Localizar_Click_Imagem(
-        #     botao_localizar_titulo, rapido, alterarhorizontal=-20)
-        # logging.debug('Localizou a Lupa e Relógio')
-
-        # if not primeiravez:
-        #     bot.ClickMesmoLugar(rapido)
-        #     bot.pressionar_tecla('home', 0, rapido)
-        #     bot.pressionar_tecla_atalho('shiftleft', 'end', 0, rapido)
-        #     bot.pressionar_tecla('del', 0, rapido)
-        #     logging.debug(
-        #         'Não é Primeria Vez, teve que dar mais um click para voltar caixa de seleção e apagar o selecionado')
-
-        # bot.Preencher_Texto(ticket, 0)
-        # bot.pressionar_tecla('enter', rapido, lento)
-        # logging.debug('Pesquisou pelo Ticket')
-
-        bot.pressionar_tecla_atalho('ctrlleft', 'space', rapido, normal)
-        bot.Preencher_Texto(ticket, 0)
+        bot.pressionar_tecla_atalho('ctrlleft', 'space', muitorapido, rapido)
+        bot.Preencher_Texto(ticket, muitorapido)
         bot.pressionar_tecla('enter', rapido, lento)
         logging.debug('Pesquisou pelo Ticket')
 
@@ -73,7 +47,5 @@ def BotImprimirPDFTicket(lista_ticket, salvarem, velocidadepadrao):
         logging.debug('Salvou o Arquivo')
         bot.pressionar_tecla('esc', rapido, rapido)
         bot.pressionar_tecla_atalho('altleft', 'w', rapido, normal)
-        # primeiravez = False
 
-    if origemNumLock:
-        bot.pressionar_tecla('numlock', 0, 0.1)
+    bot.Mensagem('Alerta', 'Processo Finalizado', 'Finalizado', 'OK')

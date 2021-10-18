@@ -56,6 +56,6 @@ def BotImprimirPDFTicket(lista_ticket, salvarem, velocidadepadrao):
         logging.debug('Salvou o Arquivo')
         bot.pressionar_tecla('esc', rapido, rapido)
         bot.pressionar_tecla_atalho('altleft', 'w', rapido, normal)
-        bot.pressionar_tecla_atalho('ctrlleft', 'w', rapido, normal)
 
+    bot.pressionar_tecla_atalho('ctrlleft', 'w', rapido, normal)
     bot.Mensagem('Alerta', 'Processo Finalizado', 'Finalizado', 'OK')

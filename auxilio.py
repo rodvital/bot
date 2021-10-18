@@ -1,5 +1,7 @@
 import webbrowser
 from time import sleep
+import os
+import re
 
 
 def AbrirAba(url, tempoPos):
@@ -16,3 +18,23 @@ def NumLockLigado():
         return True
     else:
         return False
+
+
+def ArquivosPastaemLista(diretorio, lista):
+    texto = ''
+    for entry in os.scandir(diretorio):
+        if entry.is_file():
+            if entry.name[:-4] in lista:
+                if texto == '':
+                    texto = "Arquivos com Ticket na pasta: "
+                    texto = texto + entry.name
+                else:
+                    texto = texto + ', ' + entry.name
+            print(entry.name[:-4])
+
+    return texto
+
+
+def TextoemLista(texto):
+    lista = [x.strip() for x in texto.split(',')]
+    return lista

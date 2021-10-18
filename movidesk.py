@@ -1,5 +1,5 @@
 import bot
-from auxilio import AbrirAba, NumLockLigado
+from auxilio import AbrirAba
 import sys
 import logging
 

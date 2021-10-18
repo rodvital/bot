@@ -15,10 +15,10 @@ def NaTelaLogin():
 
 def BotImprimirPDFTicket(lista_ticket, salvarem, velocidadepadrao):
 
-    muitorapido = velocidadepadrao/20   # velocidadepadrao = 2 será 0.1
-    rapido = velocidadepadrao/4         # velocidadepadrao = 2 será 0.5
+    muitorapido = velocidadepadrao / 20   # velocidadepadrao = 2 será 0.1
+    rapido = velocidadepadrao / 4         # velocidadepadrao = 2 será 0.5
     normal = velocidadepadrao           # velocidadepadrao = 2 será 2
-    lento = velocidadepadrao*1.5        # velocidadepadrao = 2 será 3
+    lento = velocidadepadrao * 1.5        # velocidadepadrao = 2 será 3
 
     logging.debug('Iniciando')
     AbrirAba('https://loglabdigital.movidesk.com/Home', 2)
@@ -40,12 +40,22 @@ def BotImprimirPDFTicket(lista_ticket, salvarem, velocidadepadrao):
         bot.Localizar_Click_Imagem(botao_opcoes, tempoPos=rapido)
         bot.Localizar_Click_Imagem(botao_imprimir_ticket, tempoPos=normal)
         bot.Localizar_Click_Imagem(botao_imprimir, tempoPos=normal)
+
+        tela_login = 'img_movidesk/imprimir_impressora_erro.png'
+        posicao = bot.VerificarImagemExiste(tela_login)
+        if posicao is not None:
+            bot.Mensagem(
+                'Alerta', 'Configurar para Imprimir como PDF', 'Não é PDF', 'OK')
+            logging.debug('Impressora não é PDF')
+            return
+
         bot.Localizar_Click_Imagem(botao_salvar_pdf, tempoPos=rapido)
-        endereco = salvarem+ticket+'.pdf'
+        endereco = salvarem + ticket + '.pdf'
         bot.Preencher_Texto(endereco, rapido)
         bot.pressionar_tecla('enter', rapido, lento)
         logging.debug('Salvou o Arquivo')
         bot.pressionar_tecla('esc', rapido, rapido)
         bot.pressionar_tecla_atalho('altleft', 'w', rapido, normal)
+        bot.pressionar_tecla_atalho('ctrlleft', 'w', rapido, normal)
 
     bot.Mensagem('Alerta', 'Processo Finalizado', 'Finalizado', 'OK')

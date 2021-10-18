@@ -30,8 +30,6 @@ def ArquivosPastaemLista(diretorio, lista):
                     texto = texto + entry.name
                 else:
                     texto = texto + ', ' + entry.name
-            print(entry.name[:-4])
-
     return texto
 
 

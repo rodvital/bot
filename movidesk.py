@@ -13,7 +13,7 @@ def NaTelaLogin():
         sys.exit()
 
 
-def BotImprimirPDFTicket(lista_ticket, salvarem, velocidadepadrao):
+def BotImprimirPDFTicket(lista_ticket, salvarem, precisahistorico, velocidadepadrao):
 
     muitorapido = velocidadepadrao / 20   # velocidadepadrao = 2 será 0.1
     rapido = velocidadepadrao / 4         # velocidadepadrao = 2 será 0.5
@@ -28,6 +28,7 @@ def BotImprimirPDFTicket(lista_ticket, salvarem, velocidadepadrao):
 
     botao_opcoes = 'img_movidesk/opcoes.png'
     botao_imprimir_ticket = 'img_movidesk/imprimir_ticket.png'
+    check_historico_alteracoes = 'img_movidesk/historico_alteracoes.png'
     botao_imprimir = 'img_movidesk/imprimir.png'
     botao_salvar_pdf = 'img_movidesk/salvar_pdf.png'
 
@@ -39,6 +40,9 @@ def BotImprimirPDFTicket(lista_ticket, salvarem, velocidadepadrao):
 
         bot.Localizar_Click_Imagem(botao_opcoes, tempoPos=rapido)
         bot.Localizar_Click_Imagem(botao_imprimir_ticket, tempoPos=normal)
+        if precisahistorico:
+            bot.Localizar_Click_Imagem(
+                check_historico_alteracoes, tempoPos=rapido)
         bot.Localizar_Click_Imagem(botao_imprimir, tempoPos=normal)
 
         tela_login = 'img_movidesk/imprimir_impressora_erro.png'
@@ -55,7 +59,7 @@ def BotImprimirPDFTicket(lista_ticket, salvarem, velocidadepadrao):
         bot.pressionar_tecla('enter', rapido, lento)
         logging.debug('Salvou o Arquivo')
         bot.pressionar_tecla('esc', rapido, rapido)
-        bot.pressionar_tecla_atalho('altleft', 'w', rapido, normal)
+        bot.pressionar_tecla_atalho('altleft', 'w', muitorapido, rapido)
 
     bot.pressionar_tecla_atalho('ctrlleft', 'w', rapido, normal)
     bot.Mensagem('Alerta', 'Processo Finalizado', 'Finalizado', 'OK')

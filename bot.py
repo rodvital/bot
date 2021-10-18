@@ -40,7 +40,7 @@ def ClickMesmoLugar(tempoPos):
 def Preencher_Texto_Localizar_Imagem(imagem, tempoPos, texto_preencher, alterarvertical=0, alterarhorizontal=0):
     Localizar_Click_Imagem(
         imagem, tempoPos, alterarvertical=alterarvertical, alterarhorizontal=alterarhorizontal)
-    sleep(0.5)
+    sleep(tempoPos)
     pyautogui.typewrite(texto_preencher)
 
 

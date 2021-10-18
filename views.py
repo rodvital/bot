@@ -19,8 +19,14 @@ def vacina():
 
 @app.route('/PdfMovidesk', methods=['POST', ])
 def PdfMovidesk():
-    texto_tickets = request.form['tickets']
-    endereco = request.form['endereco']
+    texto_tickets = request.form.get('tickets')
+    endereco = request.form.get('endereco')
+    historico = request.form.get('historico')
+    if historico == 'on':
+        precisahistorico = True
+    else:
+        precisahistorico = False
+    print(precisahistorico)
     if endereco[:-1] != '\\':
         endereco = endereco + '\\'
     lista_tickets = TextoemLista(texto_tickets)
@@ -29,7 +35,7 @@ def PdfMovidesk():
     if possui != '':
         flash(possui)
     else:
-        BotImprimirPDFTicket(lista_tickets, endereco, 2)
+        BotImprimirPDFTicket(lista_tickets, endereco, precisahistorico, 2)
     return redirect(url_for('index'))
 
 

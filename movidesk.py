@@ -1,7 +1,21 @@
 import bot
-from auxilio import AbrirAba
+from auxilio import AbrirAba, TextoemLista, ArquivosPastaemLista
 import sys
 import logging
+
+
+def regraExecucaoMovidesk(texto_tickets, endereco, historico):
+    if historico == 'on':
+        precisahistorico = True
+    else:
+        precisahistorico = False
+    if endereco[:-1] != '\\':
+        endereco = endereco + '\\'
+    lista_tickets = TextoemLista(texto_tickets)
+    possui = ArquivosPastaemLista(
+        endereco, lista_tickets)
+    return {'precisahistorico': precisahistorico, 'possuiArquivoPasta': possui,
+            'lista_tickets': lista_tickets}
 
 
 def NaTelaLogin():

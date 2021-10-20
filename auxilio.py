@@ -33,6 +33,14 @@ def ArquivosPastaemLista(diretorio, lista):
     return texto
 
 
+def RetirarVaziosLista(lista):
+    novalista = []
+    for item in lista:
+        if (item.strip()) != '':
+            novalista.append(item.strip())
+    return novalista
+
+
 def TextoemLista(texto):
-    lista = [x.strip() for x in texto.split(',')]
-    return lista
+    lista = [x.strip() for x in re.split('[,\n]', texto.strip())]
+    return RetirarVaziosLista(lista)

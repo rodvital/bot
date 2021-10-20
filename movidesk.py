@@ -2,6 +2,7 @@ import bot
 from auxilio import AbrirAba, TextoemLista, ArquivosPastaemLista
 import sys
 import logging
+import config
 
 
 def regraExecucaoMovidesk(texto_tickets, endereco, historico):
@@ -19,7 +20,10 @@ def regraExecucaoMovidesk(texto_tickets, endereco, historico):
 
 
 def NaTelaLogin():
-    tela_login = 'static/img_movidesk/tela_login.png'
+    if config.APP_ROOT == '':
+        tela_login = 'static/img_movidesk/tela_login.png'
+    else:
+        tela_login = config.APP_ROOT + '\\static\\img_movidesk\\tela_login.png'
     posicao = bot.VerificarImagemExiste(tela_login)
     if posicao is not None:
         bot.Mensagem('Alerta', 'Usuário não está logado', 'Não Logado', 'OK')
@@ -40,11 +44,20 @@ def BotImprimirPDFTicket(lista_ticket, salvarem, precisahistorico, velocidadepad
     NaTelaLogin()
     logging.debug('Usuário Logado')
 
-    botao_opcoes = 'static/img_movidesk/opcoes.png'
-    botao_imprimir_ticket = 'static/img_movidesk/imprimir_ticket.png'
-    check_historico_alteracoes = 'static/img_movidesk/historico_alteracoes.png'
-    botao_imprimir = 'static/img_movidesk/imprimir.png'
-    botao_salvar_pdf = 'static/img_movidesk/salvar_pdf.png'
+    if config.APP_ROOT == '':
+        botao_opcoes = 'static/img_movidesk/opcoes.png'
+        botao_imprimir_ticket = 'static/img_movidesk/imprimir_ticket.png'
+        check_historico_alteracoes = 'static/img_movidesk/historico_alteracoes.png'
+        botao_imprimir = 'static/img_movidesk/imprimir.png'
+        botao_salvar_pdf = 'static/img_movidesk/salvar_pdf.png'
+    else:
+        botao_opcoes = config.APP_ROOT + '\\static\\img_movidesk\\opcoes.png'
+        botao_imprimir_ticket = config.APP_ROOT + \
+            '\\static\\img_movidesk\\imprimir_ticket.png'
+        check_historico_alteracoes = config.APP_ROOT + \
+            '\\static\\img_movidesk\\historico_alteracoes.png'
+        botao_imprimir = config.APP_ROOT + '\\static\\img_movidesk\\imprimir.png'
+        botao_salvar_pdf = config.APP_ROOT + '\\static\\img_movidesk\\salvar_pdf.png'
 
     for ticket in lista_ticket:
         bot.pressionar_tecla_atalho('ctrlleft', 'space', muitorapido, rapido)

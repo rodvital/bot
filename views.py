@@ -23,7 +23,6 @@ def PdfMovidesk():
     texto_tickets = request.form.get('tickets')
     endereco = request.form.get('endereco')
     historico = request.form.get('historico')
-
     if not os.path.isdir(endereco):
         flash('O endereço informação não é um diretório na máquina')
     else:
@@ -36,8 +35,8 @@ def PdfMovidesk():
         elif regra_exec['possuiArquivoPasta'] != '':
             flash(regra_exec['possuiArquivoPasta'])
         else:
-            print(regra_exec['lista_tickets'])
-            # BotImprimirPDFTicket(regra_exec['lista_tickets'], endereco, regra_exec['precisahistorico'], 2)
+            BotImprimirPDFTicket(
+                regra_exec['lista_tickets'], endereco, regra_exec['precisahistorico'], 2)
     return redirect(url_for('index'))
 
 

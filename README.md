@@ -28,3 +28,6 @@ Para o sistema funcionar, é necessário que:
 
 ## Tecnologias
 As tecnologias utilizadas foram o pyautogui e o Flask, sendo que para o pyautogui realizar o reconhecimento das imagens foi necessário instalar o Pillow e o opencv-python. 
+
+## Instalação
+Para realizar a instalação é necessário instalar todas as dependências do projeto, pode utilizar o arquivo `requirements.txt` com o comando `pip install -r requirements.txt`

@@ -1,7 +1,5 @@
-__pycache__/auxilio.cpython-39.pyc
-__pycache__/bot.cpython-39.pyc
-__pycache__/main.cpython-39.pyc
-__pycache__/movidesk.cpython-39.pyc
-__pycache__/vacinacuiaba.cpython-39.pyc
-__pycache__/views.cpython-39.pyc
-__pycache__/*
+__pycache__/
+vemvBot/
+.mypy_cache/
+*.log
+.gitignore

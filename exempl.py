@@ -18,9 +18,9 @@ newtab = 2  # Nova Tab
 webbrowser.open('https://cadastro.vacinacuiaba.com.br', newtab)
 sleep(2)
 
-botao_fechar = 'img_vacina/fechar.png'
-botao_consultar = 'img_vacina/consultar.png'
-texto_cpf = 'img_vacina/cpf.png'
+botao_fechar = 'static/img_vacina/fechar.png'
+botao_consultar = 'static/img_vacina/consultar.png'
+texto_cpf = 'static/img_vacina/cpf.png'
 
 bot.Localizar_Click_Imagem(botao_fechar, 0.5)
 # Localizar_Click_Imagem(botao_fechar, 0.5)

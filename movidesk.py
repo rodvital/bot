@@ -5,7 +5,7 @@ import logging
 
 
 def NaTelaLogin():
-    tela_login = 'img_movidesk/tela_login.png'
+    tela_login = 'static/img_movidesk/tela_login.png'
     posicao = bot.VerificarImagemExiste(tela_login)
     if posicao is not None:
         bot.Mensagem('Alerta', 'Usuário não está logado', 'Não Logado', 'OK')
@@ -26,11 +26,11 @@ def BotImprimirPDFTicket(lista_ticket, salvarem, precisahistorico, velocidadepad
     NaTelaLogin()
     logging.debug('Usuário Logado')
 
-    botao_opcoes = 'img_movidesk/opcoes.png'
-    botao_imprimir_ticket = 'img_movidesk/imprimir_ticket.png'
-    check_historico_alteracoes = 'img_movidesk/historico_alteracoes.png'
-    botao_imprimir = 'img_movidesk/imprimir.png'
-    botao_salvar_pdf = 'img_movidesk/salvar_pdf.png'
+    botao_opcoes = 'static/img_movidesk/opcoes.png'
+    botao_imprimir_ticket = 'static/img_movidesk/imprimir_ticket.png'
+    check_historico_alteracoes = 'static/img_movidesk/historico_alteracoes.png'
+    botao_imprimir = 'static/img_movidesk/imprimir.png'
+    botao_salvar_pdf = 'static/img_movidesk/salvar_pdf.png'
 
     for ticket in lista_ticket:
         bot.pressionar_tecla_atalho('ctrlleft', 'space', muitorapido, rapido)
@@ -45,7 +45,7 @@ def BotImprimirPDFTicket(lista_ticket, salvarem, precisahistorico, velocidadepad
                 check_historico_alteracoes, tempoPos=rapido)
         bot.Localizar_Click_Imagem(botao_imprimir, tempoPos=normal)
 
-        tela_login = 'img_movidesk/imprimir_impressora_erro.png'
+        tela_login = 'static/img_movidesk/imprimir_impressora_erro.png'
         posicao = bot.VerificarImagemExiste(tela_login)
         if posicao is not None:
             bot.Mensagem(

@@ -20,6 +20,9 @@ Este bot vai até a parte de consulta o CPF do Vacina Cuiabá, preenchendo o CPF
 ## Gerar PDF's do MoviDesk
 Esta bot utiliza uma lista de até 20 tickets já cadastrado no sistema Movidesk e informado na tela, separados através de "," (vírgula) ou enter, é necessário também o local indicado pelo usuário na sua máquina para salvar os PDF's e também se deseja que a opção do histórico de alteração esteja marcada. Com isso ele gera os PDF's na pasta selecionada, caso todos os requisitos sejam cumpridos.
 
+### Vídeo da Utilização no Youtube
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/DCd9AxZVues/0.jpg)](https://www.youtube.com/watch?v=DCd9AxZVues)
+
 ### Requisitos
 Para o sistema funcionar, é necessário que:
 * O usuário esteja logado no Movidesk

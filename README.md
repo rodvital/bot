@@ -12,7 +12,7 @@ O pyautogui foi escolhido pela possibilidade de fazer a identificação dos loca
 
 ## Objetivo
 O objetivo do projeto foi testar a tecnologia do pyautogui e o Flask, e para ter uma utilidade foi feito através da Vacina Cuiabá, onde é um site aberto ao público e todos podem entender como funciona. 
-Também foi implementado uma funcionalidade mais util e complicada, que é a Geração de PDF's de chamados (Tickets) do Sistema <a href="https://www.movidesk.com/">Movidesk</a>.
+Também foi implementado uma funcionalidade mais útil e complicada, que é a Geração de PDF's de chamados (Tickets) do Sistema <a href="https://www.movidesk.com/">Movidesk</a>.
 
 ## Consultar Vacina Cuiabá
 Este bot vai até a parte de consulta o CPF do Vacina Cuiabá, preenchendo o CPF Informado. 
@@ -27,4 +27,4 @@ Para o sistema funcionar, é necessário que:
 * A impressora no browser esteja configurada para Gerar PDF (Botão será Salvar na impressão)
 
 ## Tecnologias
-As tecnologia utilizadas foram o pyautogui e o Flask, sendo que para o pyautogui realizar o reconhecimento das imagens foi necessário instalar o Pillow e o opencv-python. 
+As tecnologias utilizadas foram o pyautogui e o Flask, sendo que para o pyautogui realizar o reconhecimento das imagens foi necessário instalar o Pillow e o opencv-python. 
